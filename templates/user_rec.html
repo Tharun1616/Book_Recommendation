@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Recommender System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    {% include "nav.html" %}
+    <h4  style="color: blueviolet; margin-left:2%; margin-top:1%;"><b>User History For {{user_id}}</b></h4>
+
+    <div style="width: 95%; height: 500px; overflow: auto; margin-left: 2%;">
+        <table class="table table-dark table-striped mt-2 mr-2 ml-5">
+            <thead>
+                <tr style="color: crimson;">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Rating</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in user_data.iterrows() %}
+                <tr>
+                    <td>{{ row['Book-Title'] }}</td>
+                    <td>{{ row['Book-Author'] }}</td>
+                    <td>{{ row['Book-Rating'] }}</td>
+                        
+                    <td>
+                        <img src="{{ row['Image-URL-M'] }}" alt="Book Image" style="max-width: 100px; max-height: 100px;">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <h4  style="color: blueviolet; margin-left:2%; margin-top:1%;"><b>Recommendations For {{user_id}} Based on Titles History</b></h4>
+
+    <div style="width: 95%; height: 500px; overflow: auto; margin-left: 2%;">
+        <table class="table table-dark table-striped mt-2 mr-2 ml-5">
+            <thead>
+                <tr style="color: crimson;">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in title_rec.iterrows() %}
+                <tr>
+                    <td>{{ row['Book-Title'] }}</td>
+                    <td>{{ row['Book-Author'] }}</td>
+                    <td>{{ row['Book-Rating'] }}</td>
+                        
+                    <td>
+                        <img src="{{ row['Image-URL-M'] }}" alt="Book Image" style="max-width: 100px; max-height: 100px;">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <h4  style="color: blueviolet; margin-left:2%; margin-top:1%;"><b>Recommendations For {{user_id}} Based on Author History</b></h4>
+
+    <div style="width: 95%; height: 500px; overflow: auto; margin-left: 2%;">
+        <table class="table table-dark table-striped mt-2 mr-2 ml-5">
+            <thead>
+                <tr style="color: crimson;">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in auth_rec.iterrows() %}
+                <tr>
+                    <td>{{ row['Book-Title'] }}</td>
+                    <td>{{ row['Book-Author'] }}</td>
+                        
+                    <td>
+                        <img src="{{ row['Image-URL-M'] }}" alt="Book Image" style="max-width: 100px; max-height: 100px;">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
+
+
+
+
+
+
+

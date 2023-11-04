@@ -1,0 +1,13 @@
+prefix=/Users/tarunvannelli/Documents/Pipeline_Projects/Book_Recommendation/env
+exec_prefix=/Users/tarunvannelli/Documents/Pipeline_Projects/Book_Recommendation/env
+libdir=/Users/tarunvannelli/Documents/Pipeline_Projects/Book_Recommendation/env/lib
+sharedlibdir=/Users/tarunvannelli/Documents/Pipeline_Projects/Book_Recommendation/env/lib
+includedir=/Users/tarunvannelli/Documents/Pipeline_Projects/Book_Recommendation/env/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

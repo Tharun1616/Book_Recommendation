@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Stock Data Fetcher</title>
+</head>
+<body>
+    {% include "nav.html" %}
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+    
+          <!-- First column -->
+          <div class="col-lg-6 vh-100 bg-primary d-flex align-items-center justify-content-center">
+                <div class="form-container">
+                    <form class="row g-3">
+                        <div class="form-group">
+                            <label for="projectName"><b>Project Name:</b></label>
+                            <input type="text" class="form-control w-50 mt-2" id="projectName" value="Book Recommendations" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="datasetlink"><b>Dataset</b></label>
+                            <textarea class="form-control w-50 mt-2" id="projectDescription" rows="4" readonly>Downloaded using Kaggle.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription"><b>Project Description:</b></label>
+                            <textarea class="form-control w-50 mt-2" id="projectDescription" rows="4" readonly>Objective of this project: To Recommend the Books Based on the Title and Author for the users.</textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
+          <!-- First column -->
+    
+          <!-- Second column -->
+          <div class="col-lg-6 vh-100 bg-info d-flex align-items-center justify-content-center">
+                <div class="form-container ">
+                    <form class="row g-3" action="/set_ticker" method="post">
+                        <label for="ticker"><b>Enter User-Id</b></label>
+                        <div class="row-auto">
+                        <input type="number" class="form-control w-25" name='user_id' id="user_id" placeholder="user-id" required>
+                        </div>
+                        <div class="row-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Get Details</button>
+                        </div>
+                    </form>
+                </div>
+          </div>
+    
+          </div>
+          <!-- Second column -->
+    
+        </div>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
